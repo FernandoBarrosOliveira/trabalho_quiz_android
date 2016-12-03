@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.fernandobarros.questao1.R;
-import com.example.fernandobarros.questao1.dao.QuestaoExemploDAO;
-import com.example.fernandobarros.questao1.modelo.QuestaoExemplo;
+import com.example.fernandobarros.questao1.dao.QuestaoDAO;
+import com.example.fernandobarros.questao1.modelo.Questao;
 
 /**
  * Created by Fernando on 19/11/2016.
@@ -22,7 +24,9 @@ public class FormularioQuestaoActivity extends AppCompatActivity {
     private EditText edtResposta3;
     private EditText edtResposta4;
     private Button btnSalvar;
-    private EditText editText2;
+    private RadioGroup rgValor;
+    private RadioButton rbValor1, rbValor2, rbValor3, rbValor4;
+
 
 
     @Override
@@ -36,32 +40,33 @@ public class FormularioQuestaoActivity extends AppCompatActivity {
         edtResposta2 = (EditText) findViewById(R.id.formulario_edt_resposta2);
         edtResposta3 = (EditText) findViewById(R.id.formulario_edt_resposta3);
         edtResposta4 = (EditText) findViewById(R.id.formulario_edt_resposta4);
-        editText2 = (EditText) findViewById(R.id.editText2);
+        rgValor = (RadioGroup) findViewById(R.id.formaulario_rg_valor_resposta);
+        rbValor1 = (RadioButton) findViewById(R.id.formulario_rb_valor1);
+        rbValor2 = (RadioButton) findViewById(R.id.formulario_rb_valor2);
+        rbValor3 = (RadioButton) findViewById(R.id.formulario_rb_valor3);
+        rbValor4 = (RadioButton) findViewById(R.id.formulario_rb_valor4);
+
 
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                QuestaoExemplo questaoExemplo = new QuestaoExemplo();
-                FormularioToQuestaoExemplo(questaoExemplo);
-                QuestaoExemploDAO questaoExemploDAO = new QuestaoExemploDAO(FormularioQuestaoActivity.this);
-                questaoExemploDAO.inserirQuestao(questaoExemplo);
+                Questao questao = new Questao();
+                FormularioToQuestaoExemplo(questao);
+                QuestaoDAO questaoDAO = new QuestaoDAO(FormularioQuestaoActivity.this);
+                questaoDAO.inserirQuestao(questao);
 
-                QuestaoExemplo questaoExemploBanco = new QuestaoExemplo();
-                questaoExemploBanco = questaoExemploDAO.listaQuestao(2);
-                Toast.makeText(FormularioQuestaoActivity.this, questaoExemploBanco.getQuestao() + " Salvo", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(FormularioQuestaoActivity.this, questao.getQuestao() + " Salvo", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    private void FormularioToQuestaoExemplo(QuestaoExemplo questaoExemplo){
-        questaoExemplo.setQuestao(edtQuestao.getText().toString());
-        questaoExemplo.setResposta1(edtResposta1.getText().toString());
-        questaoExemplo.setResposta2(edtResposta2.getText().toString());
-        questaoExemplo.setResposta3(edtResposta3.getText().toString());
-        questaoExemplo.setResposta4(edtResposta4.getText().toString());
+    private void FormularioToQuestaoExemplo(Questao questao){
+        questao.setQuestao(edtQuestao.getText().toString());
+        questao.adicionarResposta((edtResposta1.getText().toString()),rbValor1.isChecked());
+        questao.adicionarResposta((edtResposta2.getText().toString()),rbValor2.isChecked());
+        questao.adicionarResposta((edtResposta3.getText().toString()),rbValor3.isChecked());
+        questao.adicionarResposta((edtResposta4.getText().toString()),rbValor4.isChecked());
 
     }
 

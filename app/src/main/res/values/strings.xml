@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Questao1</string>
+    <string-array name="dificuldade">
+        <item>Fácil</item>
+        <item>Médio</item>
+        <item>Díficil</item>
+    </string-array>
 </resources>

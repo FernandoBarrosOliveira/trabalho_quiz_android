@@ -10,23 +10,52 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.fernandobarros.questao1.activity.ApresentacaoActivity">
 
+    <Button
+        android:text="Cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/apresentacao_bt_cadastrar" />
+
+    <Button
+        android:text="listar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/apresentacao_bt_listar" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Nome"
         android:ems="10"
+        android:layout_marginTop="79dp"
+        android:id="@+id/apresentacao_edt_nome"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="155dp"
-        android:id="@+id/apresentacao_edt_nome" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Iniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="112dp"
         android:id="@+id/apresentacao_btn_iniciar"
         android:layout_below="@+id/apresentacao_edt_nome"
         android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/apresentacao_spinner_dificuldade"
+        android:layout_below="@+id/apresentacao_edt_nome"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="56dp" />
 </RelativeLayout>

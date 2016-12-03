@@ -9,17 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.ApresentacaoActivity">
-        </activity>
-        <activity android:name=".activity.QuizActivity" />
-        <activity android:name=".activity.ResultadoActivity"/>
-        <activity android:name=".activity.FormularioQuestaoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activity.QuizActivity" />
+        <activity android:name=".activity.ResultadoActivity" />
+        <activity android:name=".activity.FormularioQuestaoActivity"/>
+        <activity android:name=".activity.ListaQuestoesActivity"/>
     </application>
 
 </manifest>

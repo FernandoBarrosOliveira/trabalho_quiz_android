@@ -24,11 +24,9 @@
         android:layout_marginTop="32dp"
         android:id="@+id/quiz_txt_questao" />
 
-    <ListView
+
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="291dp"
-        android:layout_marginTop="66dp"
-        android:headerDividersEnabled="false"
-        android:footerDividersEnabled="false"
-        android:id="@+id/quiz_listview_resposta"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/quiz_recycle_perguntaS"/>
 </LinearLayout>

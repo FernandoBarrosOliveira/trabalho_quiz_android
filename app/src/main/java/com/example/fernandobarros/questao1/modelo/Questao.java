@@ -1,22 +1,32 @@
 package com.example.fernandobarros.questao1.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Fernando on 17/11/2016.
  */
 
-public class Questao {
+public class Questao implements Serializable {
+    private Integer id;
     private int enderecoImagem;
-    private String pergunta;
+    private String questao;
     private ArrayList<Resposta> respostas = new ArrayList<Resposta>();
 
-    public String getPergunta() {
-        return pergunta;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPergunta(String pergunta) {
-        this.pergunta = pergunta;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getQuestao() {
+        return questao;
+    }
+
+    public void setQuestao(String questao) {
+        this.questao = questao;
     }
 
     public int getEnderecoImagem() {
@@ -29,6 +39,10 @@ public class Questao {
 
     public ArrayList<Resposta> getRespostas() {
         return respostas;
+    }
+
+    public void setRespostas(ArrayList<Resposta> respostas) {
+        this.respostas = respostas;
     }
 
     public void adicionarResposta(String resposta, boolean valorResposta){

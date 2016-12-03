@@ -43,6 +43,38 @@
         android:ems="10"
         android:id="@+id/formulario_edt_resposta4"
         android:hint="Insira a resposta 4" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha a resposta correta:"/>
+
+    <RadioGroup
+        android:id="@+id/formaulario_rg_valor_resposta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <RadioButton
+            android:text="1ª"
+            android:layout_height="wrap_content"
+            android:id="@+id/formulario_rb_valor1"
+            android:layout_width="wrap_content"
+            android:checked="true"/>
+        <RadioButton
+            android:text="2ª"
+            android:layout_height="wrap_content"
+            android:id="@+id/formulario_rb_valor2"
+            android:layout_width="wrap_content"/>
+        <RadioButton
+            android:text="3ª"
+            android:layout_height="wrap_content"
+            android:id="@+id/formulario_rb_valor3"
+            android:layout_width="wrap_content"/>
+        <RadioButton
+            android:text="4ª"
+            android:layout_height="wrap_content"
+            android:id="@+id/formulario_rb_valor4"
+            android:layout_width="wrap_content"/>
+    </RadioGroup>
 
     <Button
         android:text="Salvar"
@@ -50,11 +82,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/formulario_btn_salvar" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText2" />
 
 </LinearLayout>

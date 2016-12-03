@@ -10,17 +10,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_NAME = "trabalho";
 
     public static final String TABLE_QUESTAO = "questao";
-    public static final String COLUMN_ID = "id";
+    public static final String COLUMN_QUESTAO_ID = "id";
     public static final String COLUMN_QUESTAO = "questao";
-    public static final String COLUMN_RESPOSTA1 = "resposta1";
-    public static final String COLUMN_RESPOSTA2 = "resposta2";
-    public static final String COLUMN_RESPOSTA3 = "resposta3";
-    public static final String COLUMN_RESPOSTA4 = "resposta4";
+
+    public static final String TABLE_RESPOSTA = "resposta";
+    public static final String COLUMN_RESPOSTA_ID = "id";
+    public static final String COLUMN_RESPOSTA_ID_QUESTAO = "idQuestao";
+    public static final String COLUMN_RESPOSTA = "resposta";
+    public static final String COLUMN_VALOR_RESPOSTA = "valor_resposta";
+
 
     public DbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,19 +33,27 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_QUESTAO = " CREATE  TABLE " +  TABLE_QUESTAO + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                COLUMN_QUESTAO +" TEXT NOT NULL," +
-                COLUMN_RESPOSTA1 +" TEXT NOT NULL, " +
-                COLUMN_RESPOSTA2 +" TEXT NOT NULL, " +
-                COLUMN_RESPOSTA3 +" TEXT NOT NULL, " +
-                COLUMN_RESPOSTA4 +" TEXT NOT NULL); " ;
-
+                COLUMN_QUESTAO_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_QUESTAO +" TEXT NOT NULL);" ;
         db.execSQL(CREATE_TABLE_QUESTAO);
+
+        String CREATE_TABLE_RESPOSTA = " CREATE  TABLE " +  TABLE_RESPOSTA + "(" +
+                COLUMN_RESPOSTA_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_RESPOSTA_ID_QUESTAO + " INTEGER, " +
+                COLUMN_RESPOSTA +" TEXT NOT NULL," +
+                COLUMN_VALOR_RESPOSTA + " INTEGER NOT NULL);" ;
+                //"FOREIGN KEY ("+ COLUMN_RESPOSTA_ID_QUESTAO + ") REFERENCES "+TABLE_QUESTAO+"("+COLUMN_QUESTAO_ID+"));" ;
+        db.execSQL(CREATE_TABLE_RESPOSTA);
+
+        String teste = "passou";
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTAO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESPOSTA);
         onCreate(db);
     }
 }
